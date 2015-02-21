@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 3, 2013 3:37:57 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.jimmy.finalproject.model.Opportunity" table="OPPORTUNITY">
+        <id name="opportunityId" type="long">
+            <column name="OPPORTUNITYID" />
+            <generator class="identity" />
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="NAME" not-null="true" length="20"/>
+        </property>
+        <many-to-one name="account" class="com.jimmy.finalproject.model.Account" fetch="join">
+            <column name="ACCOUNT" not-null="true" />
+        </many-to-one>
+        <property name="stage" type="java.lang.String">
+            <column name="STAGE" length="50" not-null="true"/>
+        </property>
+        <property name="closingDate" type="java.util.Date">
+            <column name="CLOSINGDATE" not-null="true"/>
+        </property>
+        <property name="reason" type="java.lang.String">
+            <column name="REASON" />
+        </property>
+        <property name="expectedRevenue" type="double">
+            <column name="EXPECTEDREVENUE" />
+        </property>
+       
+        <property name="source" type="java.lang.String">
+            <column name="SOURCE" length="50"/>
+        </property>
+        <property name="notes" type="java.lang.String">
+            <column name="NOTES" length="1000"/>
+        </property>
+        <many-to-one name="user" class="com.jimmy.finalproject.model.DbUser" fetch="join">
+            <column name="USER" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

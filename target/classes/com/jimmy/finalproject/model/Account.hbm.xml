@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 3, 2013 3:37:57 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.jimmy.finalproject.model.Account" table="ACCOUNT">
+        <id name="accountId" type="long">
+            <column name="ACCOUNTID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="user" class="com.jimmy.finalproject.model.DbUser" fetch="join">
+            <column name="USER" not-null="true" />
+        </many-to-one>
+
+        <property name="accountType" type="java.lang.String">
+            <column name="ACCOUNTTYPE" length="50" />
+        </property>
+         <property name="notes" type="java.lang.String">
+            <column name="NOTES" length="1000" />
+        </property>
+        <property name="accountName" type="java.lang.String">
+            <column name="ACCOUNTNAME" length="50"  not-null="true"/>
+        </property>
+        <property name="accountRating" type="java.lang.String">
+            <column name="ACCOUNTRATING" length="50"  />
+        </property>
+        <property name="accountIndustry" type="java.lang.String">
+            <column name="ACCOUNTINDUSTRY" length="50" />
+        </property>
+        <property name="fax" type="int">
+            <column name="FAX" length="13" />
+        </property>
+        <property name="annualRevenue" type="double">
+            <column name="ANNUALREVENUE" />
+        </property>
+       
+        <property name="phoneNo" type="int">
+            <column name="PHONENO" length="11"  />
+        </property>
+        <property name="website" type="java.lang.String">
+            <column name="WEBSITE" length="100"  />
+        </property>
+        <property name="numberOfEmployees" type="int">
+            <column name="NUMBEROFEMPLOYEES" />
+        </property>
+        <property name="billingAddressLine1" type="java.lang.String">
+            <column name="BILLINGADDRESSLINE1" length="100" />
+        </property>
+        <property name="billingAddressLine2" type="java.lang.String">
+            <column name="BILLINGADDRESSLINE2" length="100"/>
+        </property>
+        <property name="billingCity" type="java.lang.String">
+            <column name="BILLINGCITY" length="30" />
+        </property>
+        <property name="billingState" type="java.lang.String">
+            <column name="BILLINGSTATE" length="30"/>
+        </property>
+        <property name="billingZip" type="int">
+            <column name="BILLINGZIP" length="30"/>
+        </property>
+        <property name="billingCountry" type="java.lang.String">
+            <column name="BILLINGCOUNTRY" length="30"/>
+        </property>
+        <property name="shippingAddressLine1" type="java.lang.String">
+            <column name="SHIPPINGADDRESSLINE1" length="100"/>
+        </property>
+        <property name="shippingAddressLine2" type="java.lang.String">
+            <column name="SHIPPINGADDRESSLINE2" length="100"/>
+        </property>
+        <property name="shippingCity" type="java.lang.String">
+            <column name="SHIPPINGCITY" length="30"/>
+        </property>
+        <many-to-one name="lead" class="com.jimmy.finalproject.model.Lead" fetch="join">
+            <column name="LEAD" />
+        </many-to-one>
+        <property name="shippingState" type="java.lang.String">
+            <column name="SHIPPINGSTATE" length="30" />
+        </property>
+        <property name="shippingZip" type="int">
+            <column name="SHIPPINGZIP" length="8" />
+        </property>
+        <property name="shippingCountry" type="java.lang.String">
+            <column name="SHIPPINGCOUNTRY" length="30"/>
+        </property>
+    </class>
+</hibernate-mapping>

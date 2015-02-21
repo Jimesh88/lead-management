@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 3, 2013 3:37:57 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.jimmy.finalproject.model.Lead" table="LEAD">
+        <id name="leadId" type="long">
+            <column name="LEADID" />
+            <generator class="identity" />
+        </id>
+        <property name="firstName" type="java.lang.String">
+            <column name="FIRSTNAME" length="20" />
+        </property>
+        <property name="lastName" not-null="true" type="java.lang.String">
+            <column name="LASTNAME" length="20"/>
+        </property>
+        <property name="companyName" not-null="true" type="java.lang.String">
+            <column name="COMPANYNAME" length="50"/>
+        </property>
+        <property name="emailId" type="java.lang.String">
+            <column name="EMAILID" length="20"/>
+        </property>
+        <property name="phoneNo"  type="int">
+            <column name="PHONENO" length="11"/>
+        </property>
+        <property name="mobileNo"  type="int">
+            <column name="MOBILENO" length="11"/>
+        </property>
+        <property name="addressLine1"  type="java.lang.String">
+            <column name="ADDRESSLINE1" length="100"/>
+        </property>
+        <property name="addressLine2" type="java.lang.String">
+            <column name="ADDRESSLINE2" length="100" />
+        </property>
+        <property name="city" type="java.lang.String">
+            <column name="CITY" length="50"/>
+        </property>
+        <property name="state" type="java.lang.String">
+            <column name="STATE" length="50"/>
+        </property>
+        <property name="zip" type="int">
+            <column name="ZIP" length="10" />
+        </property>
+        <property name="country" type="java.lang.String">
+            <column name="COUNTRY" length="20"/>
+        </property>
+        <property name="notes" type="java.lang.String">
+            <column name="NOTES" length="1000"/>
+        </property>
+        <property name="leadStatus" type="java.lang.String">
+            <column name="LEADSTATUS" length="50" />
+        </property>
+        <property name="leadSource" type="java.lang.String">
+            <column name="LEADSOURCE" length="50"/>
+        </property>
+        <property name="leadIndustry" type="java.lang.String">
+            <column name="LEADINDUSTRY" length="50"/>
+        </property>
+        <many-to-one name="user" class="com.jimmy.finalproject.model.DbUser" fetch="join">
+            <column name="USER" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>
